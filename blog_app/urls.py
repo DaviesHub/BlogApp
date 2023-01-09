@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from chatter.views import homepage
+from chatter.views import homepage, about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', homepage, name='homepage')
+    path('about/', about, name='about'),
+    path('', homepage, name='homepage'),
 ]

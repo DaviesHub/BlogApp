@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def homepage(request):
     return render(request, 'chatter/frontpage.html')
+
+def about(request):
+    return render(request, 'chatter/about.html')
