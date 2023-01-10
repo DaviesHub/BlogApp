@@ -9,3 +9,6 @@ class Post(models.Model):
     intro = models.TextField(blank=True)
     body = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('-pub_date',)
