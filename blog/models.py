@@ -17,12 +17,21 @@ class Category(models.Model):
         return self.title
 
 class Post(models.Model):
+    ACTIVE = 'active'
+    DRAFT = 'draft'
+
+    CHOICES_STATUS = (
+        (ACTIVE, 'Active'),
+        (DRAFT, 'Draft'),
+    )
+
     category = models.ForeignKey(Category, related_name='posts', on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     slug = models.SlugField()
     intro = models.TextField(blank=True)
     body = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=ACTIVE)
 
     class Meta:
         ordering = ('-pub_date',)
